@@ -5,12 +5,10 @@
   <title>{{ renderData.title or title or metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  {% set css %}
-    {% include "assets/css/inline.css" %}
-  {% endset %}
-  <style>{{ css | cssmin | safe }}</style>
+  <link rel="stylesheet" href="/css/style.css" />
   {% set js %}
     {% include "assets/js/inline.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
+  <script src="/js/alpine.js"></script>
 </head>

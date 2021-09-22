@@ -47,11 +47,6 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-MM-dd");
   });
 
-  // Minify CSS
-  eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
-
   // Minify JS
   eleventyConfig.addFilter("jsmin", function(code) {
     let minified = UglifyJS.minify(code);
@@ -79,6 +74,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy({
+    '_includes/assets/css/style.css': 'css/style.css'
+  });
+  eleventyConfig.addPassthroughCopy({
+    './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
+  })
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");
