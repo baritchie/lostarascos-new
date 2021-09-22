@@ -75,7 +75,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy({
-    '_includes/assets/css/style.css': 'css/style.css'
+    './_includes/assets/css/style.css': './style.css'
   });
   eleventyConfig.addPassthroughCopy({
     './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
