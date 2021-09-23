@@ -3,20 +3,24 @@
 
 	{% include "components/head.njk" %}
 
-	<body>
+	<body class="mx-auto max-w-screen-2xl font-martel-sans bg-site-tan mt-5">
 
-		<header>
-			<em>
-				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
-			</em>
+		<header class="border-t-4 border-l-4 border-r-4 rounded-t-2xl border-white max-w-screen-2xl md:mx-0 mx-5 grid grid-cols-3 justify-center lg:justify-start py-10 items-center px-5 bg-site-yellow">
+			<div class="mx-5 lg:ml-10 lg:mr-20 col-span-1">
+                <h1 class="font-bold text-2xl text-gray-800"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+            </div>
 			{% include "components/nav.njk" %}
 		</header>
 
-		<main>
+		<main class="max-w-screen-xl">
 			{{ layoutContent | safe }}
 		</main>
 
 		{% include "components/footer.njk" %}
+        
+    <script>
+        AOS.init();
+    </script>
 
 	</body>
 

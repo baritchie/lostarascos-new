@@ -1,14 +1,16 @@
 <head>
-  <meta charset="utf-8">
-  <link rel="dns-prefetch" href="https://identity.netlify.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ renderData.title or title or metadata.title }}</title>
-  <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
-  <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <link rel="stylesheet" href="/style.css" />
-  {% set js %}
-    {% include "assets/js/inline.js" %}
-  {% endset %}
-  <script>{{ js | jsmin | safe }}</script>
-  <script src="/js/alpine.js" defer></script>
+    <meta charset="utf-8"/>
+    <link rel="dns-prefetch" href="https://identity.netlify.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ renderData.title or title or metadata.title }}</title>
+    <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}"/>
+    <script async="async" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/aos.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <script src="/js/aos.js"></script>
+    <script src="/js/inline.js"></script>
+    <script src="/js/alpine.js" defer="defer"></script>
 </head>
