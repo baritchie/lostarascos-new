@@ -1,44 +1,41 @@
 {
-  "name": "eleventy-netlify-boilerplate",
-  "version": "1.0.3",
-  "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
-  "scripts": {
-    "tailwind:devprocess": "npx postcss css/style.css --o _includes/assets/css/style.css --watch",
-    "build": "npx @11ty/eleventy && NODE_ENV=production postcss css/style.css --o _includes/assets/css/style.css",
-    "watch": "npx @11ty/eleventy --watch",
-    "serve": "npx @11ty/eleventy --serve --quiet",
-    "start": "concurrently \"npm run tailwind:devprocess\" \"npm run serve\"",
-    "debug": "DEBUG=* npx @11ty/eleventy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate"
-  },
-  "author": {
-    "name": "Dan Urbanowicz",
-    "email": "dan.urbanowicz@gmail.com",
-    "url": "https://www.danurbanowicz.com/"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate/issues"
-  },
-  "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
-  "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "alpinejs": "^3.4.0",
-    "autoprefixer": "^10.3.5",
-    "concurrently": "^6.2.1",
-    "cssnano": "^5.0.8",
-    "luxon": "^1.25.0",
-    "markdown-it": "^10.0.0",
-    "markdown-it-anchor": "^5.3.0",
-    "postcss": "^8.3.7",
-    "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.2.15"
-  },
-  "dependencies": {
-    "@11ty/eleventy-navigation": "^0.1.6",
-    "aos": "^2.3.4"
-  }
+    "name": "eleventy-netlify-boilerplate",
+    "version": "1.0.3",
+    "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
+    "scripts": {
+        "build": "concurrently \"NODE_ENV=production npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css\" \"npx @11ty/eleventy\"",
+        "start": "concurrently \"npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css --watch\" \"npx @11ty/eleventy --serve\"",
+        "debug": "DEBUG=* npx @11ty/eleventy"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate"
+    },
+    "author": {
+        "name": "Dan Urbanowicz",
+        "email": "dan.urbanowicz@gmail.com",
+        "url": "https://www.danurbanowicz.com/"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate/issues"
+    },
+    "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
+    "devDependencies": {
+        "@11ty/eleventy": "^0.12.1",
+        "alpinejs": "^3.4.0",
+        "autoprefixer": "^10.3.5",
+        "concurrently": "^6.2.1",
+        "cssnano": "^5.0.8",
+        "luxon": "^1.25.0",
+        "markdown-it": "^10.0.0",
+        "markdown-it-anchor": "^5.3.0",
+        "postcss": "^8.3.7",
+        "postcss-cli": "^8.3.1",
+        "tailwindcss": "^2.2.15"
+    },
+    "dependencies": {
+        "@11ty/eleventy-navigation": "^0.1.6",
+        "aos": "^2.3.4"
+    }
 }
