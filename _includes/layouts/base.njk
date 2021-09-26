@@ -2,7 +2,8 @@
 <html {% if section %} data-current="{{ section }}" {% endif %} lang="en">
     {% include "components/head.njk" %}
     <body class="mx-auto max-w-full font-martel-sans bg-site-tan mt-5">
-        <header class="w-full fixed top-0 z-10 flex justify-center flex-wrap lg:flex-nowrap lg:justify-between items-center px-10 py-8">
+        <header class="w-full lg:fixed top-0 z-10 flex justify-center flex-wrap lg:flex-nowrap lg:justify-between items-center lg:px-10
+                py-8">
             <div>
                 <h1 class="font-bold text-2xl text-gray-800">
                     <a href="{{ '/' | url }}">{{ metadata.title }}</a>
@@ -10,7 +11,7 @@
             </div>
             {% include "components/nav.njk" %}
         </header>
-        <main class="pt-24">
+        <main class="pt-10 lg:pt-24">
             {{ layoutContent | safe }}
         </main>
         {% include "components/footer.njk" %}

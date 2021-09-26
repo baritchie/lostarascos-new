@@ -43,6 +43,10 @@ module.exports = function (eleventyConfig) {
         return DateTime.fromJSDate(dateObj).toFormat("yyyy-MM-dd");
     });
 
+    eleventyConfig.addFilter("removeHyphens", (theString) => {
+        return theString = theString.replace(/-|\s/g, "");
+    });
+
     /*   // Minify JS
       eleventyConfig.addFilter("jsmin", function (code) {
         let minified = UglifyJS.minify(code);

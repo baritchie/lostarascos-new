@@ -6,4 +6,19 @@
     .btn {
         @apply px-4 py-2 bg-blue-600 text-white rounded;
         }
+    .h3-title {
+        @apply text-2xl font-bold uppercase mb-4;
+    }
+    .h4-title {
+        @apply text-xl font-semibold my-2;
+    }
+    .menu-tab {
+        @apply text-center px-8 pt-2.5 pb-2 border-2 border-black rounded-sm;
+    }
+    .menu-tab-inactive {
+        @apply menu-tab bg-white;
+    }
+    .menu-tab-active {
+        @apply menu-tab bg-site-rose;
+    }
 }
