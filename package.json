@@ -5,7 +5,8 @@
     "scripts": {
         "build": "concurrently \"NODE_ENV=production npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css\" \"npx @11ty/eleventy\"",
         "start": "concurrently \"npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css --watch\" \"npx @11ty/eleventy --serve\"",
-        "debug": "DEBUG=* npx @11ty/eleventy"
+        "debug": "DEBUG=* npx @11ty/eleventy",
+        "tailwind": "npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css"
     },
     "repository": {
         "type": "git",
