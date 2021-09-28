@@ -3,10 +3,10 @@
     "version": "1.0.3",
     "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
     "scripts": {
-        "build": "concurrently \"NODE_ENV=production npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css\" \"npx @11ty/eleventy\"",
-        "start": "concurrently \"npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css --watch\" \"npx @11ty/eleventy --serve\"",
+        "build": "concurrently \"TAILWIND_MODE=watch npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css\" \"npx @11ty/eleventy\"",
+        "start": "concurrently \"TAILWIND_MODE=watch npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css --watch\" \"npx @11ty/eleventy --serve\"",
         "debug": "DEBUG=* npx @11ty/eleventy",
-        "tailwind": "npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css"
+        "tailwind": "TAILWIND_MODE=watch npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css"
     },
     "repository": {
         "type": "git",
