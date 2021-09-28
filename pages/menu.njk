@@ -46,8 +46,8 @@ eleventyNavigation:
                                 </p>
                             </div>
                             {% if featured.data.price %}
-                            <div {% if featured.data.click_through %} class="mb-2 cursor-pointer bg-site-rose border-2 border-black rounded-sm px-4 py-2"  @click="{{ featured.data.title | slug | removeHyphens}} = !{{ featured.data.title | slug | removeHyphens}}" {% endif %}
-                            class="bg-site-rose border-2 border-black rounded-sm px-4 py-2">
+                            <div {% if featured.data.click_through %} class="mb-2 cursor-pointer bg-site-rose border-2 border-black rounded-sm px-4 py-2"  @click="{{ featured.data.title | slug | removeHyphens}} = !{{ featured.data.title | slug | removeHyphens}}" {% else %}
+                            class="bg-site-rose border-2 border-black rounded-sm px-4 py-2" {% endif %}>
                                 <p 
                                 class="text-center font-bold">{{ featured.data.price }}</p>
                             </div>
