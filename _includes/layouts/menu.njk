@@ -2,5 +2,95 @@
 layout: layouts/base.njk
 section: menu
 ---
-
-{{ layoutContent | safe }}
+<div class="bg-site-orange w-full py-8 border-t-2 border-b-2 border-2 border-black">
+    <div class="w-full lg:max-w-max mx-auto bg-white flex flex-col text-center py-4 px-32 mb-10 border-2 border-black rounded-sm">
+        <h1 class="text-5xl font-bold uppercase">Menu</h1>
+    </div>
+    <div class="w-full lg:w-5/6 mx-auto px-10 py-8 bg-white border-2 rounded-sm border-black" x-data="{ tab: 'featured', activeClasses: 'menu-tab-active', inactiveClasses: 'menu-tab-inactive' }">
+        <ul class="flex items-center justify-start space-x-5">
+            <li @click="tab = 'featured'">
+                <button :class="tab === 'featured' ? activeClasses : inactiveClasses" >Featured</button>
+            </li>
+            <li @click="tab = 'burritos'">
+                <button :class="tab === 'burritos' ? activeClasses : inactiveClasses" >Burritos</button>
+            </li>
+            <li @click="tab = 'tortas'">
+                <button :class="tab === 'tortas' ? activeClasses : inactiveClasses" >Tortas</button>
+            </li>
+        </ul>
+        <div class="pt-10">
+            <div x-show="tab === 'featured'" class="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-10"             
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform"
+                x-transition:enter-end="opacity-100 transform">
+                {% for featured in collections.featured %}
+                <div class="border-black border-b-2 pb-2" {% if featured.data.click_through %} x-data="{ {{ featured.data.title | slug | removeHyphens }}: false }" {% endif %}>
+                    {% if featured.data.click_through %}
+                        <h3 class="h3-title text-center cursor-pointer" @click="{{ featured.data.title | slug | removeHyphens}} = !{{ featured.data.title | slug | removeHyphens}}">{{ featured.data.title }}</h3>
+                    {% else %}
+                        <h3 class="h3-title text-center">{{ featured.data.title }}</h3>
+                    {% endif %}
+                    <div class="grid grid-cols-1 grid-flow-row gap-2 lg:gap-10">
+                        <div class="flex flex-row flex-nowrap items-start justify-between">
+                            <div>
+                                <p 
+                                    {% if featured.data.click_through %} class="mb-3 cursor-pointer"  @click="{{ featured.data.title | slug | removeHyphens}} = !{{ featured.data.title | slug | removeHyphens}}" {% endif %}
+                                >
+                                    {{ featured.data.description }} 
+                                </p>
+                            </div>
+                            {% if featured.data.price %}
+                            <div {% if featured.data.click_through %} class="mb-2 cursor-pointer bg-site-rose border-2 border-black rounded-sm px-4 py-2"  @click="{{ featured.data.title | slug | removeHyphens}} = !{{ featured.data.title | slug | removeHyphens}}" {% else %}
+                            class="bg-site-rose border-2 border-black rounded-sm px-4 py-2" {% endif %}>
+                                <p 
+                                class="text-center font-bold">{{ featured.data.price }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if featured.data.click_through %}
+                        <div class="fixed top-0 left-0 w-full h-full z-20" style="background-color: rgba(0,0,0,.5);"
+                                x-show="{{ featured.data.title | slug | removeHyphens }} === true"
+                                x-transition:enter="transition ease-out duration-100"
+                                x-transition:enter-start="opacity-0 transform"
+                                x-transition:enter-end="opacity-100 transform"
+                                >
+                                <div class="relative text-left w-full h-full flex items-center justify-center">
+                                    <div class="relative grid lg:grid-cols-2 grid-flow-row lg:grid-flow-col grid-cols-1 space-x-10 bg-white p-4 w-full lg:w-auto lg:max-w-2xl md:p-6 lg:p-8 shadow-xl rounded mx-2 lg:mx-auto" @click.away="{{ featured.data.title | slug | removeHyphens }} = false">
+                                        <div class="absolute right-5 top-5">
+                                            <button class="text-black font-xl font-semibold" @click="{{ featured.data.title | slug | removeHyphens }} = false">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        {% for content in featured.data.click_through_content %}
+                                            <div class="lg:mb-2 relative">
+                                                <h4 class="h4-title">{{ content.block.title }}</h4>
+                                                <div class="flex flex-row flex-nowrap items-start justify-between space-x-4">
+                                                    <div>
+                                                        <p>{{ content.block.description }}</p>
+                                                    </div>
+                                                    <div class="bg-site-rose border-2 border-black rounded-sm px-4 py-2">
+                                                        <p class="text-center font-bold">{{ content.block.price }}</p>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div x-show="tab === 'tortas'" class="grid grid-cols-2 grid-flow-row gap-10"             
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform"
+                x-transition:enter-end="opacity-100 transform">
+                <div>Test content tortas 1</div>
+                <div>Test content tortas 2</div>
+                <div>Test content tortas 3</div>
+                <div>Test content tortas 4</div>
+            </div>
+        </div>
+    </div>    
+</div>
