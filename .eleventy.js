@@ -47,29 +47,6 @@ module.exports = function (eleventyConfig) {
         return theString = theString.replace(/-|\s/g, "");
     });
 
-    /*   // Minify JS
-      eleventyConfig.addFilter("jsmin", function (code) {
-        let minified = UglifyJS.minify(code);
-        if (minified.error) {
-          console.log("UglifyJS error: ", minified.error);
-          return code;
-        }
-        return minified.code;
-      }); */
-
-    /*   // Minify HTML output
-      eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-        if (outputPath.indexOf(".html") > -1) {
-          let minified = htmlmin.minify(content, {
-            useShortDoctype: true,
-            removeComments: true,
-            collapseWhitespace: true,
-          });
-          return minified;
-        }
-        return content;
-      }); */
-
     eleventyConfig.addWatchTarget('./tailwind.config.js');
     eleventyConfig.addWatchTarget('./_includes/assets/css/style.css');
     eleventyConfig.addWatchTarget('./_site/css/style.css');
@@ -82,16 +59,15 @@ module.exports = function (eleventyConfig) {
         "./_includes/assets/css/style.css": "./css/style.css",
     });
     eleventyConfig.addPassthroughCopy({
+        "./node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js": "./js/ScrollMagic.min.js",
+        "./node_modules/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js": "./js/ScrollMagic.gsap.min.js",
+        "./node_modules/scrollmagic/scrollmagic/minified/plugins/animation.velocity.min.js": "./js/ScrollMagic.velocity.min.js",
+        "./node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js": "./js/ScrollMagic.debug.min.js"
+    });
+    eleventyConfig.addPassthroughCopy({
         "./node_modules/alpinejs/dist/cdn.js": "./js/alpine.js",
-    });
-    eleventyConfig.addPassthroughCopy({
-        "./node_modules/aos/dist/aos.js": "./js/aos.js",
-    });
-    eleventyConfig.addPassthroughCopy({
-        "./node_modules/aos/dist/aos.css": "./css/aos.css",
-    });
-    eleventyConfig.addPassthroughCopy({
         "./_includes/assets/js/inline.js": "./js/inline.js",
+        "./_includes/assets/js/footer-scripts.js": "./js/footer.js"
     });
 
     /* Markdown Plugins */

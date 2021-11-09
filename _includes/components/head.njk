@@ -4,12 +4,18 @@
     <title>{{ renderData.title or title or metadata.title }}</title>
     <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}"/>
     <link rel="stylesheet" href="/css/style.css"/>
-    <link rel="stylesheet" href="/css/aos.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
     <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-    <script src="/js/aos.js"></script>
+    <script src="/js/ScrollMagic.min.js"></script>
+    <script src="/js/ScrollMagic.gsap.min.js"></script>
+    <script src="/js/ScrollMagic.velocity.min.js"></script>
+    <script src="/js/ScrollMagic.debug.min.js"></script>
     <script src="/js/inline.js"></script>
     <script src="/js/alpine.js" defer="defer"></script>
     <script src="https://kit.fontawesome.com/861df2df43.js" crossorigin="anonymous"></script>
+    <script>
+        // init controller
+        var controller = new ScrollMagic.Controller();
+    </script>
 </head>

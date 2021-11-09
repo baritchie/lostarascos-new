@@ -34,6 +34,6 @@
     },
     "dependencies": {
         "@11ty/eleventy-navigation": "^0.1.6",
-        "aos": "^2.3.4"
+        "scrollmagic": "^2.0.8"
     }
 }
