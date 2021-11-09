@@ -70,6 +70,10 @@ module.exports = function (eleventyConfig) {
         return content;
       }); */
 
+    eleventyConfig.addWatchTarget('./tailwind.config.js');
+    eleventyConfig.addWatchTarget('./_includes/assets/css/style.css');
+    eleventyConfig.addWatchTarget('./_site/css/style.css');
+
     // Don't process folders with static assets e.g. images
     eleventyConfig.addPassthroughCopy("favicon.ico");
     eleventyConfig.addPassthroughCopy("static/img");

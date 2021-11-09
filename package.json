@@ -3,10 +3,8 @@
     "version": "1.0.3",
     "description": "A boilerplate for building a fast static website with the Eleventy static site generator, for deployment to Netlify.",
     "scripts": {
-        "build": "npx @11ty/eleventy && TAILWIND_MODE=watch npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css",
-        "start": "concurrently \"TAILWIND_MODE=watch npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css --watch\" \"npx @11ty/eleventy --serve\"",
-        "debug": "DEBUG=* npx @11ty/eleventy",
-        "tailwind": "TAILWIND_MODE=watch npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css"
+        "build": "npx @11ty/eleventy && npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css",
+        "start": "concurrently \"npx tailwindcss -i _includes/assets/css/style.css -o _site/css/style.css --watch\" \"npx @11ty/eleventy --serve\""
     },
     "repository": {
         "type": "git",
@@ -25,15 +23,14 @@
     "devDependencies": {
         "@11ty/eleventy": "^0.12.1",
         "alpinejs": "^3.4.0",
-        "autoprefixer": "^10.3.5",
+        "autoprefixer": "^10.3.7",
         "concurrently": "^6.2.1",
-        "cssnano": "^5.0.8",
         "luxon": "^1.25.0",
         "markdown-it": "^10.0.0",
         "markdown-it-anchor": "^5.3.0",
-        "postcss": "^8.3.7",
+        "postcss": "^8.3.9",
         "postcss-cli": "^8.3.1",
-        "tailwindcss": "^2.2.15"
+        "tailwindcss": "^2.2.16"
     },
     "dependencies": {
         "@11ty/eleventy-navigation": "^0.1.6",
