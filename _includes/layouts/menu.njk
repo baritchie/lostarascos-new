@@ -6,7 +6,7 @@ section: menu
     <div class="w-full lg:max-w-max mx-auto bg-white flex flex-col text-center py-4 px-32 mb-10 border-2 border-black rounded-sm">
         <h1 class="text-5xl font-bold uppercase">Menu</h1>
     </div>
-    <div class="w-full lg:w-2/3 mx-auto px-10 py-8 bg-white border-2 rounded-sm border-black" x-data="{ tab: 'featured', activeClasses: 'menu-tab-active', inactiveClasses: 'menu-tab-inactive' }">
+    <div x-cloak class="w-full lg:w-2/3 mx-auto px-10 py-8 bg-white border-2 rounded-sm border-black" x-data="{ tab: 'featured', activeClasses: 'menu-tab-active', inactiveClasses: 'menu-tab-inactive' }">
         <ul class="flex items-center justify-start space-x-5 mb-8">
             <li @click="tab = 'featured'">
                 <button :class="tab === 'featured' ? activeClasses : inactiveClasses" >Featured</button>
