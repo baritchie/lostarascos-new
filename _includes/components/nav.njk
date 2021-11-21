@@ -1,8 +1,8 @@
-<nav class="w-full lg:w-max text-base col-span-1 border-2 border-black bg-gray-50 leading-8">
+<nav class="w-full lg:w-max text-lg col-span-1 border-2 border-black bg-gray-50 leading-8">
     {% set navPages = collections.all | eleventyNavigation %}
     <ul class="flex justify-between lg:justify-start space-x-14 mx-14">
         {%- for entry in navPages %}
-            <li class="pt-2.5 pb-2 text-gray-800 font-semibold rounded-sm">
+            <li class="pt-2.5 pb-2 text-gray-800 font-bold rounded-sm">
                 <a href="{{ entry.url | url }}" {% if entry.url == page.url %} data-current="current item" {% endif %}>{{ entry.title }}</a>
             </li>
         {%- endfor %}

@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                "martel-sans": "'Martel Sans',sans-serif",
+                "body": "'Overlock', cursive",
             },
             colors: {
                 "site-yellow": "#FEBD2F",

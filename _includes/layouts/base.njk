@@ -1,11 +1,11 @@
 <!doctype html>
 <html {% if section %} data-current="{{ section }}" {% endif %} lang="en">
     {% include "components/head.njk" %}
-    <body class="mx-auto max-w-full font-martel-sans bg-site-tan mt-5">
+    <body class="mx-auto max-w-full font-body bg-site-tan mt-5">
         <header class="w-full lg:fixed top-0 z-10 flex justify-center flex-wrap lg:flex-nowrap lg:justify-between items-center lg:px-10
                 py-8">
             <div class="border-2 border-black bg-site-tan px-4 pb-2 pt-2.5 leading-8">
-                <h1 class="font-bold text-2xl text-gray-800">
+                <h1 class="text-2xl font-black text-gray-800">
                     <a href="{{ '/' | url }}">{{ metadata.title }}</a>
                 </h1>
             </div>
